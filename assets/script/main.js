@@ -17,3 +17,9 @@ function generaNumeriCasuali() {
         }
     }
 }
+
+function avviaTimer(durataInSecondi) {
+    let tempoRimanente = durataInSecondi;
+    let messaggiElement = document.getElementById('messaggi');
+    messaggiElement.innerHTML = 'Tempo rimanente: ' + tempoRimanente + ' secondi';
+}
