@@ -59,7 +59,17 @@ function validaInput(inputElement) {
 }
 
 function aggiornaStatoPulsante() {
-
+    let inputs = document.querySelectorAll('.input-numero');
+    let button = document.querySelector('button[type="submit"]');
+    let isValido = true;
+    
+    inputs.forEach(function(input) {
+        if (input.value.trim() === '' || input.classList.contains('errore-input')) {
+            isValido = false;
+        }
+    });
+    
+    button.disabled = !isValido;
 }
 
 function calcolaRisultato() {
