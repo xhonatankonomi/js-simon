@@ -6,7 +6,7 @@ function generaNumeriCasuali() {
     numeriDaIndovinare = [];
 
     for (let contatore = 0; contatore < 100 && numeriDaIndovinare.length < 5; contatore++) {
-        
+
         let numero = Math.floor(Math.random() * 100) + 1;
         let trovato = false;
         for (let i = 0; i < numeriDaIndovinare.length; i++) {
@@ -96,6 +96,20 @@ function calcolaRisultato() {
             numeriCorretti.push(numero);
         }
     });
+
+    let numeriIndovinati = numeriCorretti.length;
+    
+
+    let form = document.getElementById('form-input');
+    form.style.display = 'none';
+    
+    let messaggiElement = document.getElementById('messaggi');
+    messaggiElement.innerHTML = 'Hai indovinato ' + numeriIndovinati + ' numeri su 5.\n\n' +
+                               'I numeri corretti che hai inserito sono: ' + 
+                               (numeriCorretti.length > 0 ? numeriCorretti.join(', ') : 'nessuno') + '.\n\n' +
+                               'I numeri originali erano: ' + numeriDaIndovinare.join(', ') + '.';
+    
+    messaggiElement.innerHTML = messaggiElement.innerHTML.replace(/\n\n/g, '<br><br>');
 }
 
 function passaAllaFaseInput() {
