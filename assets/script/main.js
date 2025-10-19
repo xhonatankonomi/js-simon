@@ -38,6 +38,16 @@ function validaInput(inputElement) {
     let valore = inputElement.value.trim();
     let numero = parseInt(valore);
     let isNumeroValido = !isNaN(numero) && valore !== '' && numero > 0 && numero <= 100 && valore === numero.toString();
+
+    let isDuplicato = false;
+    if (isNumeroValido) {
+        let inputs = document.querySelectorAll('.input-numero');
+        inputs.forEach(function(altroInput) {
+            if (altroInput !== inputElement && altroInput.value === valore) {
+                isDuplicato = true;
+            }
+        });
+    }
 }
 
 function aggiornaStatoPulsante() {
