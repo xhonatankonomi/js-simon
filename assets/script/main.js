@@ -22,4 +22,30 @@ function avviaTimer(durataInSecondi) {
     let tempoRimanente = durataInSecondi;
     let messaggiElement = document.getElementById('messaggi');
     messaggiElement.innerHTML = 'Tempo rimanente: ' + tempoRimanente + ' secondi';
+
+    timerId = setInterval(function() {
+        tempoRimanente = tempoRimanente - 1;
+        messaggiElement.innerHTML = 'Tempo rimanente: ' + tempoRimanente + ' secondi';
+        
+        if (tempoRimanente <= 0) {
+            clearInterval(timerId);
+            passaAllaFaseInput();
+        }
+    }, 1000);
+}
+
+function validaInput(inputElement) {
+
+}
+
+function aggiornaStatoPulsante() {
+
+}
+
+function calcolaRisultato() {
+
+}
+
+function passaAllaFaseInput() {
+    
 }
