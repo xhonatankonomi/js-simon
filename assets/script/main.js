@@ -48,6 +48,14 @@ function validaInput(inputElement) {
             }
         });
     }
+
+    if (!isNumeroValido || isDuplicato) {
+        inputElement.classList.add('errore-input');
+    } else {
+        inputElement.classList.remove('errore-input');
+    }
+    
+    aggiornaStatoPulsante();
 }
 
 function aggiornaStatoPulsante() {
