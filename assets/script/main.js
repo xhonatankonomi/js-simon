@@ -35,7 +35,9 @@ function avviaTimer(durataInSecondi) {
 }
 
 function validaInput(inputElement) {
-
+    let valore = inputElement.value.trim();
+    let numero = parseInt(valore);
+    let isNumeroValido = !isNaN(numero) && valore !== '' && numero > 0 && numero <= 100 && valore === numero.toString();
 }
 
 function aggiornaStatoPulsante() {
@@ -47,5 +49,5 @@ function calcolaRisultato() {
 }
 
 function passaAllaFaseInput() {
-    
+
 }
