@@ -114,4 +114,42 @@ function calcolaRisultato() {
 
 function passaAllaFaseInput() {
 
+    let numeriElement = document.getElementById('numeri-casuali');
+    numeriElement.innerHTML = '';
+    
+    let form = document.getElementById('form-input');
+    form.style.display = 'block';
+
+    let messaggiElement = document.getElementById('messaggi');
+    messaggiElement.innerHTML = 'Inserisci i 5 numeri che ricordi.';
+    
+    form.innerHTML = '';
+    
+    for (let i = 1; i <= 5; i++) {
+        
+        let input = document.createElement('input');
+        input.type = 'text';
+        input.maxLength = '3';
+        input.className = 'input-numero';
+        input.name = 'numero-' + i;
+        
+        input.addEventListener('input', function() {
+            validaInput(this);
+        });
+    
+        form.appendChild(input);
+        
+        form.appendChild(document.createTextNode(' '));
+    }
+    
+    let button = document.createElement('button');
+    button.type = 'submit';
+    button.textContent = 'Verifica';
+    button.disabled = true; 
+    form.appendChild(button);
+    
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        calcolaRisultato();
+    });
 }
