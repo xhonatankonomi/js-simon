@@ -1,0 +1,16 @@
+/* Stile base per gli input numerici */
+.input-numero {
+    width: 50px;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Stile per evidenziare gli input non validi */
+.errore-input {
+    border: 2px solid red;
+    background-color: #ffebee;
+}
