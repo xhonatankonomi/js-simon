@@ -126,7 +126,7 @@ function passaAllaFaseInput() {
     form.innerHTML = '';
     
     for (let i = 1; i <= 5; i++) {
-        
+
         let input = document.createElement('input');
         input.type = 'text';
         input.maxLength = '3';
@@ -153,3 +153,20 @@ function passaAllaFaseInput() {
         calcolaRisultato();
     });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    generaNumeriCasuali();
+    
+    let elemento = document.getElementById('numeri-casuali');
+    elemento.innerHTML = '';
+    
+    for (let i = 0; i < numeriDaIndovinare.length; i++) {
+        elemento.innerHTML = elemento.innerHTML + '<span>' + numeriDaIndovinare[i] + '</span> ';
+    }
+    
+    let form = document.getElementById('form-input');
+    form.style.display = 'none';
+    
+    avviaTimer(30);
+});
