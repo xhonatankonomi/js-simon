@@ -2,8 +2,11 @@ let numeriDaIndovinare = [];
 let timerId;
 
 function generaNumeriCasuali() {
+
     numeriDaIndovinare = [];
+
     for (let contatore = 0; contatore < 100 && numeriDaIndovinare.length < 5; contatore++) {
+        
         let numero = Math.floor(Math.random() * 100) + 1;
         let trovato = false;
         for (let i = 0; i < numeriDaIndovinare.length; i++) {
@@ -19,11 +22,13 @@ function generaNumeriCasuali() {
 }
 
 function avviaTimer(durataInSecondi) {
+
     let tempoRimanente = durataInSecondi;
     let messaggiElement = document.getElementById('messaggi');
     messaggiElement.innerHTML = 'Tempo rimanente: ' + tempoRimanente + ' secondi';
 
     timerId = setInterval(function() {
+
         tempoRimanente = tempoRimanente - 1;
         messaggiElement.innerHTML = 'Tempo rimanente: ' + tempoRimanente + ' secondi';
         
@@ -35,12 +40,14 @@ function avviaTimer(durataInSecondi) {
 }
 
 function validaInput(inputElement) {
+
     let valore = inputElement.value.trim();
     let numero = parseInt(valore);
     let isNumeroValido = !isNaN(numero) && valore !== '' && numero > 0 && numero <= 100 && valore === numero.toString();
 
     let isDuplicato = false;
     if (isNumeroValido) {
+
         let inputs = document.querySelectorAll('.input-numero');
         inputs.forEach(function(altroInput) {
             if (altroInput !== inputElement && altroInput.value === valore) {
@@ -59,6 +66,7 @@ function validaInput(inputElement) {
 }
 
 function aggiornaStatoPulsante() {
+
     let inputs = document.querySelectorAll('.input-numero');
     let button = document.querySelector('button[type="submit"]');
     let isValido = true;
@@ -74,6 +82,20 @@ function aggiornaStatoPulsante() {
 
 function calcolaRisultato() {
 
+    let numeriInseriti = [];
+    let numeriCorretti = [];
+    
+    
+    let inputs = document.querySelectorAll('.input-numero');
+    inputs.forEach(function(input) {
+        let numero = parseInt(input.value);
+        numeriInseriti.push(numero);
+        
+        
+        if (numeriDaIndovinare.includes(numero)) {
+            numeriCorretti.push(numero);
+        }
+    });
 }
 
 function passaAllaFaseInput() {
